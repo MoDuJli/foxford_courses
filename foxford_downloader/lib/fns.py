@@ -454,6 +454,7 @@ async def save_page(url: str, path: Path, folder: str, cookies: Iterable[Dict], 
             browser = await connect(browserWSEndpoint=browser_endpoint)
             page = await browser.newPage()
             await page.emulateMedia("screen")
+            await page.setViewport({"width": 411, "height": 823})
             await page.setCookie(*cookies)
             await page.goto(url, {"waitUntil": "domcontentloaded"})
 
